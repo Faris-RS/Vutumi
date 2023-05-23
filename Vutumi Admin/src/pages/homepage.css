@@ -1,0 +1,7 @@
+.admin-home {
+  display: flex;
+  width: 100%;
+}
+.homeContainer {
+  flex: 6;
+}
