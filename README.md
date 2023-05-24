@@ -1,6 +1,6 @@
 This is a social application where a user, upon registration, can interact with others through thier posts or through messages. This was built using ReactJS.
 
-Starting scripts:
+### Starting scripts: ###
 <!--  -->
 yarn client: This command will start the client side
 <!--  -->
