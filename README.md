@@ -9,4 +9,5 @@ yarn server: This command will start the server side
 yarn admin: This command will start the admin side
 <!--  -->
 <--- The following install script is unvalidated and as such may not work properly, if script fails, please do install dependencies manually --->
+<!--  -->
 yarn install: It will install all dependencies within root folder so that installing within each folder is avoided
