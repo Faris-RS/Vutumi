@@ -83,7 +83,6 @@ export default function OtherProfile() {
 
   const showModal = async (id) => {
     await axios.get(`${userUrl}userProfile/${id}/${token}`).then((response) => {
-      console.log(response);
       if (response.status === 206) {
         setIsUser(true);
       }
@@ -118,14 +117,12 @@ export default function OtherProfile() {
       });
   };
 
-  useEffect(()=>{
-    const changeContactStatus = async() => {
-      await axios.get(`${userUrl}checkOtherProfile/${token}`).then((response) => {
-        console.log('hello');
-      })
-    }
-    changeContactStatus()
-  },[ifContact])
+  useEffect(() => {
+    const changeContactStatus = async () => {
+      await axios.get(`${userUrl}checkOtherProfile/${token}`);
+    };
+    changeContactStatus();
+  }, [ifContact]);
 
   const confirmToast = () => {
     return new Promise((resolve, reject) => {
@@ -203,13 +200,10 @@ export default function OtherProfile() {
           <div className="container mx-auto px-4">
             <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-xl rounded-lg -mt-64">
               <div className="px-6">
-                {
-                  ifContact === true ? (
-                    <>
-                    You are not connected to this user
-                    </>
-                  ) : (
-                    <>
+                {ifContact === true ? (
+                  <>You are not connected to this user</>
+                ) : (
+                  <>
                     {otherProfilePage === "about" && (
                       <>
                         <div className="flex flex-wrap justify-center">
@@ -334,8 +328,8 @@ export default function OtherProfile() {
                                       <div className="flex flex-wrap">
                                         {!snippetData.length ? (
                                           <div>
-                                            {userData.firstName} does not appear to
-                                            have created any snippet.
+                                            {userData.firstName} does not appear
+                                            to have created any snippet.
                                           </div>
                                         ) : (
                                           <>
@@ -350,7 +344,7 @@ export default function OtherProfile() {
                                                 minute: "numeric",
                                                 hour12: true,
                                               });
-    
+
                                               return (
                                                 <div
                                                   className="lg:pt-12 pt-6 w-full md:w-4/12 px-4 text-center z-10"
@@ -366,18 +360,19 @@ export default function OtherProfile() {
                                                       <p className="text-sm font-medium uppercase tracking-widest text-pink-500">
                                                         {formattedDate}
                                                       </p>
-    
+
                                                       <p className="text-xl font-bold text-white sm:text-2xl">
                                                         {x.title}
                                                       </p>
-    
+
                                                       <div className="mt-32 sm:mt-48 lg:mt-64">
                                                         <div className="translate-y-8 transform opacity-0 transition-all group-hover:translate-y-0 group-hover:opacity-100">
                                                           <p className="text-sm text-white">
                                                             {x.caption}
                                                           </p>
                                                           <p className="text-sm text-white">
-                                                            {x.like.length} likes
+                                                            {x.like.length}{" "}
+                                                            likes
                                                           </p>
                                                         </div>
                                                       </div>
@@ -427,7 +422,7 @@ export default function OtherProfile() {
                             </div>
                           </div>
                         </div>
-    
+
                         <div className="mt-10 py-10 border-t border-gray-300 text-center">
                           <div className="flex flex-wrap justify-center">
                             <div className="w-full lg:w-9/12 px-4">
@@ -438,8 +433,8 @@ export default function OtherProfile() {
                                       <div className="flex flex-wrap">
                                         {!contacts.length ? (
                                           <div>
-                                            {userData.firstName} does not appear to
-                                            have any connections.
+                                            {userData.firstName} does not appear
+                                            to have any connections.
                                           </div>
                                         ) : (
                                           <>
@@ -488,9 +483,8 @@ export default function OtherProfile() {
                         </div>
                       </>
                     )}
-                    </>
-                  )
-                }
+                  </>
+                )}
               </div>
             </div>
           </div>

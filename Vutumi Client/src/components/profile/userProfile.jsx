@@ -21,7 +21,6 @@ export default function UserProfile() {
         setTimeout(() => {
           setParsing(false);
         }, 100);
-        // console.log(userData);
       });
     };
     getDetails();

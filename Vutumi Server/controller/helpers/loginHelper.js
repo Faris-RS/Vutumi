@@ -14,24 +14,25 @@ export const sendOtpHelper = (user) => {
     if (userExist) {
       response.status = false;
     } else {
-      // await otpGenerator().then((otp) => {
-      //     sendMail(user.email, otp).then((result) => {
-      //         if (result.otpSent) {
-      //             response.otpSent = true
-      //             response.status = true
-      //             otpVerify = otp
-      //         } else {
-      //             response.otpSent = false
-      //         }
-      //     })
-      // })
-
       await otpGenerator().then((otp) => {
-        response.otpSent = true;
-        response.status = true;
-        otpVerify = otp;
-        console.log(otpVerify, "otpverify inside helper");
+        sendMail(user.email, otp).then((result) => {
+          if (result.otpSent) {
+            response.otpSent = true;
+            response.status = true;
+            otpVerify = otp;
+            console.log("otp: ", otpVerify);
+          } else {
+            response.otpSent = false;
+          }
+        });
       });
+
+      // await otpGenerator().then((otp) => {
+      //   response.otpSent = true;
+      //   response.status = true;
+      //   otpVerify = otp;
+      //   console.log("otp: ", otpVerify);
+      // });
     }
     resolve(response);
   });
@@ -62,7 +63,6 @@ export const forgotPasswordOtpHelper = (user) => {
         response.otpSent = true;
         response.status = true;
         otpVerify = otp;
-        // console.log(otpVerify, 'otpverify inside helper');
       });
     }
     resolve(response);

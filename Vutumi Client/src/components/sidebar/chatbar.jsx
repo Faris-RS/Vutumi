@@ -95,27 +95,6 @@ export default function Chatbar() {
   };
 
   useEffect(() => {
-    console.log("current chat");
-    console.log(chatPerson);
-  }, [chatPerson]);
-
-  //
-
-  // useEffect(() => {
-  //   const getDetails = () => {
-  //     const token = { token: localStorage.getItem("userToken") };
-  //     axios.post(`${chatUrl}userData`, token).then((response) => {
-  //       setData(response.data.data);
-  //     });
-  //   };
-  //   getDetails();
-  // }, []);
-
-  // useEffect(()=>{
-  //   console.log(currentUser);
-  // },[currentUser])
-
-  useEffect(() => {
     if (currentChat !== null) {
       axios
         .post(recieveMessageRoute, {
@@ -125,7 +104,6 @@ export default function Chatbar() {
         .then((response) => {
           setMessages(response.data);
           setLoading(false);
-          // console.log(response.data);
         });
     }
   }, [currentChat]);
@@ -153,7 +131,7 @@ export default function Chatbar() {
     });
     await axios.post(sendMessageRoute, {
       from: currentUser._id,
-      to: currentChat._id,
+      to: currentChat,
       message: msg,
     });
 
@@ -169,8 +147,6 @@ export default function Chatbar() {
       });
     }
   }, []);
-
-  // console.log(messages);
 
   useEffect(() => {
     arrivalMessage && setMessages((prev) => [...prev, arrivalMessage]);
@@ -280,7 +256,6 @@ export default function Chatbar() {
                   </div>
                 </Container>
                 <Container2>
-                  <div className="button-container"></div>
                   <form
                     className="input-container"
                     onSubmit={(event) => sendChat(event)}
@@ -309,6 +284,7 @@ const Container = styled.div`
   display: grid;
   grid-template-rows: 10% 80% 10%;
   gap: 0.1rem;
+  height: 80vh;
   overflow: hidden;
   @media screen and (min-width: 720px) and (max-width: 1080px) {
     grid-template-rows: 15% 70% 15%;
@@ -370,12 +346,6 @@ const Container2 = styled.div`
     padding: 0 1rem;
     gap: 1rem;
   }
-  .button-container {
-    display: flex;
-    align-items: center;
-    color: white;
-    gap: 1rem;
-    }
   }
   .input-container {
     width: 100%;

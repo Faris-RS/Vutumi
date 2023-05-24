@@ -225,8 +225,6 @@ export const reportPost = async (req, res) => {
   const userDetail = await userModel.findOne({
     _id: jwt.verify(req.body.token, process.env.TOKEN_SECRET).userId,
   });
-  // const reporter =await postModel.findOne({ report: userDetail._id })
-  // console.log(reporter);
   if (await postModel.findOne({ report: userDetail._id })) {
     await postModel.findOneAndUpdate(
       { _id: req.params.id },

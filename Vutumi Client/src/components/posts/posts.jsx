@@ -55,7 +55,6 @@ export default function Posts() {
     await axios
       .get(`${postUrl}showPostUser/${id}/${data.token}`)
       .then((response) => {
-        console.log(response.data);
         setUserData(response.data.data);
         if (response.status === 206) {
           setIsUser(true);

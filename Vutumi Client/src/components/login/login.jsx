@@ -72,7 +72,6 @@ export default function Login() {
           setBlock(true);
           setUserError(false);
           setIncorrectPass(false);
-          console.log("user is blocked");
         }
       } else {
         setUserError(true);
@@ -81,15 +80,6 @@ export default function Login() {
       }
     });
   };
-
-  // const handleCheckbox = (event) => {
-  //   if (event.target.checked) {
-  //     // localStorage.setItem('remember', true)
-  //   } else {
-  //     // localStorage.setItem('remember', false)
-  //   }
-  //   setCheckbox((current) => !current);
-  // };
 
   return (
     <>

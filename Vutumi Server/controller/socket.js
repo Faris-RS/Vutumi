@@ -44,7 +44,6 @@ io.on("connection", (socket) => {
 
   // Tic Tac Toe
   socket.on("joinRoom", (roomCode) => {
-    console.log(`A user joined the room ${roomCode}`);
     socket.join(roomCode);
   });
 

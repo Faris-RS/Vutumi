@@ -203,7 +203,6 @@ export const removeConnection = async (req, res) => {
 };
 
 export const otherProfile = async (req, res) => {
-  console.log(req.params.id);
   const response = {
     data: await userModel.findOne({ _id: req.params.id }),
   };
@@ -227,7 +226,3 @@ export const otherConnection = async (req, res) => {
     console.error(err);
   }
 };
-
-// export const checkOtherProfile = async (req, res) => {
-//   console.log(req.params.token);
-// }

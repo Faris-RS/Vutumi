@@ -175,20 +175,9 @@ const Sidebar = () => {
             }`}
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
-            onClick={() => Navigate("/chat")}
-          >
-            Open Chat
-          </h3>{" "}
-          <br />
-          <h3
-            className={`mt-10 text-3xl font-semibold text-white cursor-pointer inline-block duration-300 ease-in-out ${
-              isHovered ? "hover:underline" : ""
-            }`}
-            onMouseEnter={() => setIsHovered(true)}
-            onMouseLeave={() => setIsHovered(false)}
             onClick={openChat}
           >
-            Side Chat
+            Conversations
           </h3>{" "}
           <br />
           <LogoutLocal />
