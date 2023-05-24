@@ -5,9 +5,7 @@ import Header from "../components/header/header";
 import Sidebar from "../components/sidebar/sidebar";
 const Posts = React.lazy(() => import("../components/posts/posts"));
 const People = React.lazy(() => import("../components/posts/people"));
-import Loading from "../components/loading/Loading";
 import Waiting from "../components/loading/waiting";
-import Error1 from "../components/error/error1";
 
 export default function HomePage() {
   const [loading, setLoading] = useState(true);
