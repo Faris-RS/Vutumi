@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import styled from "styled-components";
-import ChatInput from "./ChatInput";
 import { v4 as uuidv4 } from "uuid";
+import ChatInput from "./ChatInput";
 import axios from "axios";
 import { sendMessageRoute, recieveMessageRoute } from "../../api/chatRoutes";
 import { chatUrl } from "../../api/api";
@@ -29,6 +29,7 @@ export default function ChatContainer({ currentChat, socket }) {
       to: currentChat._id,
     }).then((response)=>{
       setMessages(response.data);
+      console.log(messages);
     })
   }, [currentChat]);
 

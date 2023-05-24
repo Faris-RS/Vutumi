@@ -14,7 +14,7 @@ export default function Chat() {
   const navigate = useNavigate();
   const socket = useRef();
   const [contacts, setContacts] = useState([]);
-  const [currentChat, setCurrentChat] = useState();
+  const [currentChat, setCurrentChat] = useState(null);
   const [currentUser, setCurrentUser] = useState();
 
   useEffect(() => {
@@ -58,7 +58,7 @@ export default function Chat() {
       <Container>
         <div className="container">
           <Contacts contacts={contacts} changeChat={handleChatChange} />
-          {currentChat === undefined ? (
+          {currentChat === null ? (
             <Welcome />
           ) : (
             <ChatContainer currentChat={currentChat} socket={socket} />

@@ -25,6 +25,7 @@ export const getAllUsers = async (req, res, next) => {
 export const getMessages = async (req, res, next) => {
   try {
     const { from, to } = req.body;
+    console.log(to);
     const messages = await Messages.find({
       users: {
         $all: [from, to],

@@ -47,6 +47,12 @@ const modalStore = create((set) => ({
 
   connection: false,
   setIsConnection: (newConnection) => set({ connection: newConnection }),
+
+  showChat: false,
+  setShowChat: (newShowChat) => set({ showChat: newShowChat }),
+
+  showSingleChat: false,
+  setSingleChat: (newSingleChat) => set({ showSingleChat: newSingleChat }),
 }));
 
 export default modalStore;

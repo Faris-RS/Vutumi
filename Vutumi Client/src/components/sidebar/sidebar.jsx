@@ -11,6 +11,8 @@ import Search from "./search";
 import Connections from "./connections";
 import axios from "axios";
 import { userUrl } from "../../api/api";
+import Chatbar from "./chatbar";
+import SingleChat from "./singleChat";
 
 const Sidebar = () => {
   const [requestData, setRequestData] = useState([]);
@@ -26,6 +28,9 @@ const Sidebar = () => {
     connection,
     setIsConnection,
     refresh,
+    showChat,
+    setShowChat,
+    showSingleChat,
   } = modalStore();
   const { isHovered, setIsHovered, setLoading, loading } = animationStore();
   const { connectionRequest, setIsConnectionRequest } = userProfileStore();
@@ -45,6 +50,12 @@ const Sidebar = () => {
 
   const searchBar = () => {
     setShowSearch(!showSearch);
+    setIsActive(!isActive);
+  };
+
+  const openChat = () => {
+    setShowSidebar(!showSidebar);
+    setShowChat(!showChat);
     setIsActive(!isActive);
   };
 
@@ -169,6 +180,17 @@ const Sidebar = () => {
             Open Chat
           </h3>{" "}
           <br />
+          <h3
+            className={`mt-10 text-3xl font-semibold text-white cursor-pointer inline-block duration-300 ease-in-out ${
+              isHovered ? "hover:underline" : ""
+            }`}
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+            onClick={openChat}
+          >
+            Side Chat
+          </h3>{" "}
+          <br />
           <LogoutLocal />
         </div>
       </>
@@ -176,6 +198,10 @@ const Sidebar = () => {
       {isSnippet ? <CreateSnippet /> : null}
 
       {showSearch ? <Search /> : null}
+
+      {showChat ? <Chatbar /> : null}
+
+      {showSingleChat ? <SingleChat /> : null}
 
       {connection ? <Connections requests={requestData} /> : null}
     </>
