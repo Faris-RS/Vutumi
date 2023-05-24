@@ -1,0 +1,22 @@
+{
+  "name": "vutumi",
+  "version": "1.0.0",
+  "description": "react project app",
+  "main": "index.js",
+  "scripts": {
+    "server": "cd Vutumi Server && yarn start",
+    "client": "cd Vutumi Client && yarn run dev",
+    "admin": "cd Vutumi Admin && yarn run dev",
+    "install": "cd Vutumi Server && yarn install && cd .. && cd Vutumi Client && yarn install && cd .. && cd Vutumi Admin && yarn install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Faris-RS/Vutumi.git"
+  },
+  "author": "Faris-RS",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Faris-RS/Vutumi/issues"
+  },
+  "homepage": "https://github.com/Faris-RS/Vutumi#readme"
+}
