@@ -93,12 +93,19 @@ const server = app.listen(process.env.PORT, () =>
   console.log(`Server started on ${process.env.PORT}`)
 );
 
+// const io = new Server(server, {
+//   cors: {
+//     origin: "http://localhost:8080",
+//     credentials: true,
+//   },
+// });
+
 const io = new Server(server, {
-  cors: {
-    origin: "http://localhost:8080",
-    credentials: true,
-  },
-});
+    cors: {
+      origin: "*",
+      credentials: true,
+    },
+  });
 
 global.onlineUsers = new Map();
 
