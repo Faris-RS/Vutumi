@@ -63,25 +63,25 @@ app.use(passport.session());
 // );
 
 // Global Cors
-// app.use(cors());
+app.use(cors());
 
 // Hosted Cors
-app.use(
-  cors({
-    origin: function (origin, callback) {
-      if (
-        origin === process.env.CLIENT_URL ||
-        origin === process.env.SERVER_URL
-      ) {
-        callback(null, true);
-      } else {
-        callback(new Error("Not allowed by CORS"));
-      }
-    },
-    credentials: true,
-    methods: "GET,POST,PUT,DELETE,PATCH",
-  })
-);
+// app.use(
+//   cors({
+//     origin: function (origin, callback) {
+//       if (
+//         origin === process.env.CLIENT_URL ||
+//         origin === process.env.SERVER_URL
+//       ) {
+//         callback(null, true);
+//       } else {
+//         callback(new Error("Not allowed by CORS"));
+//       }
+//     },
+//     credentials: true,
+//     methods: "GET,POST,PUT,DELETE,PATCH",
+//   })
+// );
 
 app.use("/auth", authRouter);
 app.use("/", userRouter);
