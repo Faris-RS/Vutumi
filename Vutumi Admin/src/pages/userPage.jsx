@@ -1,7 +1,7 @@
 import React, { useState, createContext } from "react";
 import SideBar from "../components/sidebar/sidebar";
 import "./homepage.css";
-import UserTable from "../components/table/usertable";
+import UserTable from "../components/table/userTable";
 import ReportedPostTable from "../components/table/reportedPostTable";
 export const sideBarContext = createContext("user");
 function UserPage() {
