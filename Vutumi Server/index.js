@@ -44,12 +44,34 @@ app.use(fileUpload());
 app.use(passport.initialize());
 app.use(passport.session());
 
+// Local Host Cors
+// app.use(
+//   cors({
+//     origin: function (origin, callback) {
+//       if (
+//         origin === "http://localhost:8080" ||
+//         origin === "http://localhost:4000"
+//       ) {
+//         callback(null, true);
+//       } else {
+//         callback(new Error("Not allowed by CORS"));
+//       }
+//     },
+//     credentials: true,
+//     methods: "GET,POST,PUT,DELETE,PATCH",
+//   })
+// );
+
+// Global Cors
+// app.use(cors());
+
+// Hosted Cors
 app.use(
   cors({
     origin: function (origin, callback) {
       if (
-        origin === "http://localhost:8080" ||
-        origin === "http://localhost:4000"
+        origin === process.env.CLIENT_URL ||
+        origin === process.env.SERVER_URL
       ) {
         callback(null, true);
       } else {
