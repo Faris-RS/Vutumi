@@ -4,12 +4,10 @@ import cors from "cors";
 import logger from "morgan";
 import cookieParser from "cookie-parser";
 import bodyParser from "body-parser";
-import passportSetup from "./strategies/passport.js";
 import passport from "passport";
 import dotenv from "dotenv";
 import fileUpload from "express-fileupload";
 import { Server } from "socket.io";
-import { v4 as uuidv4 } from "uuid";
 
 import authRouter from "./routes/auth.js";
 import connection from "./config/dbConnection.js";
